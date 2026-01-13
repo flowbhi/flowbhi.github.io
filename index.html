@@ -1,919 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <title>Flowbhi — AI Enthusiast • Data Engineer • Climber</title>
-  <meta name="description" content="A single-page portfolio describing my flow state: AI, data engineering, climbing, adventure, and constant learning." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root{
-      --bg0:#070A12;
-      --bg1:#0B1020;
-      --card:#0F1733;
-      --muted:#A7B0D6;
-      --text:#EAF0FF;
-      --line:rgba(234,240,255,.12);
-      --glow:rgba(124,92,255,.35);
-      --accent:#7C5CFF;
-      --accent2:#2CE6C9;
-      --good:#47D18C;
-      --warn:#FFCC66;
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 26px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.22), transparent 60%),
-        radial-gradient(1000px 700px at 85% 20%, rgba(44,230,201,.16), transparent 55%),
-        radial-gradient(900px 700px at 40% 90%, rgba(255,204,102,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
 
-    a{ color:inherit; text-decoration:none; }
-    .container{
-      width:min(1100px, 92vw);
-      margin:0 auto;
-      padding: 28px 0 70px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* Top bar */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding: 10px 0 26px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      user-select:none;
-    }
-    .logo{
-      width:42px;height:42px;border-radius:14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 60%),
-        linear-gradient(135deg, rgba(124,92,255,1), rgba(44,230,201,1));
-      box-shadow: 0 16px 45px rgba(124,92,255,.22);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:-20%;
-      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.16), transparent 60%);
-      transform: translateX(-40%) rotate(12deg);
-      animation: sheen 5.5s ease-in-out infinite;
-    }
-    @keyframes sheen{
-      0%{ transform: translateX(-55%) rotate(12deg); opacity:.25;}
-      40%{ transform: translateX(60%) rotate(12deg); opacity:.35;}
-      100%{ transform: translateX(60%) rotate(12deg); opacity:0;}
-    }
-    .brand h1{
-      font-size:14px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      margin:0;
-      color:rgba(234,240,255,.88);
-    }
-    .brand p{
-      margin:2px 0 0;
-      font-size:12px;
-      color:rgba(167,176,214,.9);
-    }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
 
-    .nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .pill{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      padding:10px 12px;
-      border-radius: 999px;
-      font-size:12px;
-      color:rgba(234,240,255,.88);
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .pill:hover{
-      transform: translateY(-1px);
-      border-color: rgba(124,92,255,.4);
-      background: rgba(124,92,255,.09);
-    }
-    .pill .dot{
-      width:6px;height:6px;border-radius:50%;
-      background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(44,230,201,.15);
-    }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .hero{ grid-template-columns:1fr; }
-    }
-    .panel{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .panel:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 220px at 30% 0%, rgba(124,92,255,.22), transparent 60%),
-                  radial-gradient(500px 220px at 80% 10%, rgba(44,230,201,.16), transparent 55%);
-      pointer-events:none;
-      opacity:.85;
-    }
-    .panel > *{ position:relative; z-index:1; }
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
 
-    .hero-left{ padding:28px 26px; }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(124,92,255,.35);
-      background: rgba(124,92,255,.10);
-      color: rgba(234,240,255,.9);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .kicker .spark{
-      width:10px;height:10px;border-radius:3px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 5px rgba(124,92,255,.14);
-    }
-    .hero h2{
-      margin:14px 0 8px;
-      font-size: 42px;
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    @media (max-width: 520px){
-      .hero h2{ font-size: 34px; }
-    }
-    .hero p{
-      margin:0;
-      color: rgba(167,176,214,.95);
-      font-size:16px;
-      line-height:1.65;
-      max-width: 62ch;
-    }
-    .cta-row{
-      margin-top:18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      font-size:13px;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(44,230,201,.42);
-      background: rgba(44,230,201,.08);
-    }
-    .btn.primary{
-      border-color: rgba(124,92,255,.5);
-      background: linear-gradient(135deg, rgba(124,92,255,.20), rgba(44,230,201,.10));
-    }
-    .btn.primary:hover{
-      border-color: rgba(124,92,255,.75);
-      background: linear-gradient(135deg, rgba(124,92,255,.30), rgba(44,230,201,.14));
-    }
-    .icon{
-      width:18px;height:18px; display:inline-block;
-    }
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 8px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
 
-    /* Hero right: Flow gauge */
-    .hero-right{ padding:22px; }
-    .card-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding-bottom:14px;
-      border-bottom: 1px solid var(--line);
-    }
-    .card-title h3{
-      margin:0;
-      font-size:14px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: rgba(234,240,255,.85);
-    }
-    .badge{
-      font-family:var(--mono);
-      font-size:12px;
-      padding:7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(44,230,201,.45);
-      background: rgba(44,230,201,.08);
-      color: rgba(234,240,255,.9);
-    }
+        .progress-bar {
+            background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+            height: 20px;
+            border-radius: 50px;
+            width: 65%;
+            animation: progress 2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .gauge{
-      margin-top:16px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(15,23,51,.45);
-      padding:14px;
-    }
-    .meter{
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(234,240,255,.08);
-      overflow:hidden;
-      border:1px solid rgba(234,240,255,.10);
-    }
-    .meter > span{
-      display:block;
-      height:100%;
-      width: 78%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 30px rgba(124,92,255,.35);
-      border-radius:999px;
-      animation: fill 1.2s ease-out both;
-    }
-    @keyframes fill{
-      from{ width: 18%; opacity:.6; }
-      to{ width: 78%; opacity:1; }
-    }
-    .gauge-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      margin-top:12px;
-    }
-    .mini{
-      border:1px solid var(--line);
-      border-radius: 14px;
-      padding: 10px 10px;
-      background: rgba(255,255,255,.02);
-    }
-    .mini b{
-      display:block;
-      font-size:12px;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      color: rgba(234,240,255,.86);
-      margin-bottom:6px;
-    }
-    .mini p{
-      margin:0;
-      font-size:12px;
-      color: rgba(167,176,214,.95);
-      line-height:1.5;
-    }
+        @keyframes progress {
+            from { width: 0%; }
+            to { width: 65%; }
+        }
 
-    /* Sections */
-    .section{
-      margin-top:18px;
-      padding: 22px;
-    }
-    .section h3{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(234,240,255,.9);
-    }
-    .section p{
-      margin:0;
-      color: rgba(167,176,214,.95);
-      line-height:1.7;
-      font-size:15px;
-    }
+        .status {
+            margin: 20px 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
 
-    .grid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:12px;
-    }
-    .col-6{ grid-column: span 6; }
-    .col-4{ grid-column: span 4; }
-    .col-8{ grid-column: span 8; }
-    .col-12{ grid-column: span 12; }
-    @media (max-width: 900px){
-      .col-6,.col-4,.col-8{ grid-column: span 12; }
-    }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
 
-    .tile{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      border-radius: var(--radius);
-      padding:16px 16px;
-      position:relative;
-      overflow:hidden;
-    }
-    .tile:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(320px 120px at 20% 0%, rgba(124,92,255,.15), transparent 60%),
-                  radial-gradient(280px 130px at 90% 20%, rgba(44,230,201,.10), transparent 60%);
-      opacity:.9;
-      pointer-events:none;
-    }
-    .tile > *{ position:relative; z-index:1; }
-    .tile h4{
-      margin:0 0 8px;
-      font-size:14px;
-      letter-spacing:.04em;
-      color: rgba(234,240,255,.92);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .chip{
-      font-family:var(--mono);
-      font-size:12px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border:1px solid rgba(234,240,255,.12);
-      color: rgba(234,240,255,.85);
-      background: rgba(255,255,255,.02);
-    }
-    .tile ul{
-      margin:0;
-      padding-left: 18px;
-      color: rgba(167,176,214,.95);
-      line-height:1.7;
-      font-size:14px;
-    }
-    .tile li{ margin: 4px 0; }
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
 
-    /* Flow Loop */
-    .loop{
-      margin-top:14px;
-      border:1px dashed rgba(234,240,255,.18);
-      border-radius: var(--radius);
-      padding:14px;
-      background: rgba(0,0,0,.10);
-    }
-    .loop-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .step{
-      flex: 1 1 180px;
-      min-width: 180px;
-      border:1px solid var(--line);
-      border-radius: 14px;
-      padding:10px 10px;
-      background: rgba(255,255,255,.02);
-    }
-    .step b{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-      color: rgba(234,240,255,.9);
-    }
-    .step p{
-      margin:0;
-      color: rgba(167,176,214,.95);
-      font-size:12px;
-      line-height:1.6;
-    }
-    .arrow{
-      flex: 0 0 auto;
-      opacity:.6;
-      font-family:var(--mono);
-      padding: 6px 8px;
-      border-radius:10px;
-      border:1px solid rgba(234,240,255,.12);
-      background: rgba(255,255,255,.02);
-    }
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
 
-    /* Footer */
-    footer{
-      margin-top:22px;
-      padding: 18px 6px 0;
-      color: rgba(167,176,214,.85);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    footer span{ opacity:.9; }
-    .mono{ font-family:var(--mono); }
+        .notify-form {
+            margin-top: 50px;
+        }
 
-    /* tiny util */
-    .muted{ color: rgba(167,176,214,.95); }
-    .sep{ opacity:.4; padding:0 8px; }
-    .kbd{
-      font-family:var(--mono);
-      font-size:12px;
-      border:1px solid rgba(234,240,255,.16);
-      background: rgba(255,255,255,.03);
-      padding: 2px 6px;
-      border-radius: 8px;
-      margin: 0 2px;
-    }
+        .email-input {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
-    /* Modal */
-    dialog{
-      width:min(820px, 94vw);
-      border:none;
-      padding:0;
-      border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(18,27,60,.95), rgba(10,15,33,.96));
-      color: var(--text);
-      box-shadow: 0 26px 90px rgba(0,0,0,.55);
-      border:1px solid rgba(234,240,255,.12);
-      overflow:hidden;
-    }
-    dialog::backdrop{
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(6px);
-    }
-    .modal-head{
-      padding:18px 18px 12px;
-      border-bottom: 1px solid rgba(234,240,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .modal-head h3{
-      margin:0;
-      font-size:14px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: rgba(234,240,255,.9);
-    }
-    .xbtn{
-      border:1px solid rgba(234,240,255,.14);
-      background: rgba(255,255,255,.04);
-      color: rgba(234,240,255,.9);
-      border-radius: 12px;
-      padding:8px 10px;
-      cursor:pointer;
-    }
-    .xbtn:hover{
-      border-color: rgba(124,92,255,.5);
-      background: rgba(124,92,255,.10);
-    }
-    .modal-body{
-      padding: 16px 18px 18px;
-    }
-    .modal-body p{
-      margin: 0 0 10px;
-      color: rgba(167,176,214,.95);
-      line-height:1.7;
-      font-size:14px;
-    }
-    .list{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: rgba(167,176,214,.95);
-      line-height:1.75;
-      font-size:14px;
-    }
-  </style>
+        input[type="email"] {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            backdrop-filter: blur(10px);
+        }
+
+        input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #fff;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 36px; }
+            .subtitle { font-size: 18px; }
+            .email-input { flex-direction: column; }
+            button { width: 100%; }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand" aria-label="Site brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>FlowBhi - Flow x Abhi</h1>
-          <p class="muted">AI enthusiast • data engineer • climber • adventure seeker • lifelong learner</p>
+    <div class="container">
+        <div class="logo">P</div>
+        <h1>Coming Soon</h1>
+        <p class="subtitle">Crafting something amazing for you</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
         </div>
-      </div>
-
-      <nav class="nav" aria-label="Page navigation">
-        <a class="pill" href="#triggers"><span class="dot" aria-hidden="true"></span>Triggers</a>
-        <a class="pill" href="#stack"><span class="dot" aria-hidden="true"></span>Tech Stack</a>
-        <a class="pill" href="#climb"><span class="dot" aria-hidden="true"></span>Climbing</a>
-        <a class="pill" href="#rituals"><span class="dot" aria-hidden="true"></span>Rituals</a>
-        <a class="pill" href="#now"><span class="dot" aria-hidden="true"></span>Now</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" id="top">
-        <div class="panel hero-left" role="region" aria-label="Hero">
-          <div class="kicker"><span class="spark" aria-hidden="true"></span>Where I find flow</div>
-          <h2>Building systems that feel like climbing.</h2>
-          <p>
-            My flow state lives at the intersection of <b>AI</b> and <b>data engineering</b>—when messy signals become
-            clean, reliable pipelines, and experiments turn into products. It’s the same feeling I chase on a wall:
-            high focus, clear feedback, and the next move always just within reach.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn primary" href="#triggers" title="Jump to Flow Triggers">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M7 16l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Explore my flow map
+        
+        <p class="status">🚀 Work in Progress - Almost There!</p>
+        
+        <div class="notify-form">
+            <p style="margin-bottom: 20px;">Get notified when we launch</p>
+            <form class="email-input" onsubmit="handleSubmit(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" aria-label="Twitter">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                </svg>
             </a>
-
-            <button class="btn" id="openPlaybook" type="button" title="Open the flow playbook">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 19.5V6.6c0-.9.6-1.7 1.5-1.9C7.7 4.2 10 4 12 4s4.3.2 6.5.7c.9.2 1.5 1 1.5 1.9v12.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M4 19.5c1.7-.7 3.7-1 5.8-1H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 19.5c-1.7-.7-3.7-1-5.8-1H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              Flow playbook
-            </button>
-
-            <span class="muted">
-              Tip: press <span class="kbd">/</span> to jump to “Now”
-            </span>
-          </div>
+            <a href="#" aria-label="LinkedIn">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+            </a>
         </div>
-
-        <aside class="panel hero-right" role="region" aria-label="Flow gauge">
-          <div class="card-title">
-            <h3>Flow Gauge</h3>
-            <span class="badge" id="flowLabel">MODE: DEEP WORK</span>
-          </div>
-
-          <div class="gauge" aria-label="Flow meter">
-            <div class="muted" style="font-size:12px; margin-bottom:10px; display:flex; justify-content:space-between; gap:10px;">
-              <span>signal → clarity</span>
-              <span class="mono" id="flowPercent">78%</span>
-            </div>
-            <div class="meter" aria-hidden="true"><span id="flowBar"></span></div>
-
-            <div class="gauge-grid" aria-label="Flow components">
-              <div class="mini">
-                <b>Challenge</b>
-                <p>Complex problem, real constraints, visible impact.</p>
-              </div>
-              <div class="mini">
-                <b>Skill</b>
-                <p>Data systems + AI curiosity, tuned by iteration.</p>
-              </div>
-              <div class="mini">
-                <b>Feedback</b>
-                <p>Dashboards, tests, logs, and “does it work?” fast.</p>
-              </div>
-              <div class="mini">
-                <b>Freedom</b>
-                <p>Room to explore: prototypes, spikes, and refactors.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="section" style="padding:16px 0 0;">
-            <h3 style="margin-bottom:8px;">Flow in one sentence</h3>
-            <p style="font-size:14px;">
-              “Give me a hard route, a clean dataset, or a new model—then let me iterate until it clicks.”
-            </p>
-          </div>
-        </aside>
-      </section>
-
-      <section class="panel section" id="triggers" role="region" aria-label="Flow Triggers">
-        <h3>My Flow Triggers</h3>
-        <p>
-          I drop into flow when there’s a <b>clear objective</b>, a <b>tight feedback loop</b>, and enough complexity
-          to stay curious. Here’s what reliably flips the switch.
-        </p>
-
-        <div class="grid" style="margin-top:16px;">
-          <div class="tile col-6">
-            <h4>
-              <span class="chip">01</span> Make it real: ship something
-            </h4>
-            <ul>
-              <li>Turning ambiguity into a scoped plan and a first working slice.</li>
-              <li>Building pipelines that stay up under pressure (and explain themselves).</li>
-              <li>Watching metrics move because the system is finally dependable.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-6">
-            <h4>
-              <span class="chip">02</span> Curiosity with constraints
-            </h4>
-            <ul>
-              <li>Exploring AI ideas—but grounding them in data quality and evaluation.</li>
-              <li>“Can we prove it?” with experiments, baselines, and iteration.</li>
-              <li>When a wild approach becomes a simple, robust solution.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-4">
-            <h4><span class="chip">03</span> High-signal feedback</h4>
-            <ul>
-              <li>Tests, observability, and dashboards that tell the truth fast.</li>
-              <li>Short cycles: build → measure → learn → repeat.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-4">
-            <h4><span class="chip">04</span> The “next move” feeling</h4>
-            <ul>
-              <li>Like climbing: one move ahead, fully present, no noise.</li>
-              <li>A sequence of small, confident decisions.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-4">
-            <h4><span class="chip">05</span> Learning new terrain</h4>
-            <ul>
-              <li>New tools, new domains, new patterns—enough novelty to stay sharp.</li>
-              <li>Documenting what I learn so it compounds.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel section" id="stack" role="region" aria-label="The way I build">
-        <h3>How I Build in Flow</h3>
-        <p>
-          My best work feels like a clean ascent: setup is deliberate, execution is calm, and decisions are guided by
-          data. I aim for systems that are <b>observable</b>, <b>maintainable</b>, and <b>boringly reliable</b>.
-        </p>
-
-        <div class="grid" style="margin-top:16px;">
-          <div class="tile col-8">
-            <h4><span class="chip">Mindset</span> Engineering that scales with reality</h4>
-            <ul>
-              <li>Start with a thin end-to-end slice, then harden it.</li>
-              <li>Optimize for clarity: naming, docs, and “future me will thank me.”</li>
-              <li>Prefer simple primitives; introduce complexity only when it earns its keep.</li>
-              <li>AI is a tool: I care about evaluation, drift, and outcomes—not hype.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-4">
-            <h4><span class="chip">Signals</span> What “good” looks like</h4>
-            <ul>
-              <li><b class="muted">Green pipelines</b> and stable SLAs</li>
-              <li><b class="muted">Fast debugging</b> via logs/traceability</li>
-              <li><b class="muted">Clear metrics</b> and measurable wins</li>
-              <li><b class="muted">Delight</b> when others can use it easily</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="loop" aria-label="Flow loop">
-          <div class="loop-row">
-            <div class="step">
-              <b>Warm-up <span class="chip">10m</span></b>
-              <p>Define the outcome. One metric. One constraint. One first step.</p>
-            </div>
-            <div class="arrow" aria-hidden="true">→</div>
-            <div class="step">
-              <b>Build <span class="chip">45m</span></b>
-              <p>Ship the slice. Make it run. Make it visible. No perfection yet.</p>
-            </div>
-            <div class="arrow" aria-hidden="true">→</div>
-            <div class="step">
-              <b>Measure <span class="chip">10m</span></b>
-              <p>Read logs, tests, dashboards. Confirm reality. Adjust fast.</p>
-            </div>
-            <div class="arrow" aria-hidden="true">→</div>
-            <div class="step">
-              <b>Refine <span class="chip">25m</span></b>
-              <p>Remove friction. Improve reliability. Document the “why.”</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel section" id="climb" role="region" aria-label="Climbing and adventure">
-        <h3>Climbing as a Mirror</h3>
-        <p>
-          Climbing trains the same muscles I use in engineering: patience, precision, and learning from failure
-          without drama. Adventure keeps my curiosity alive—and that curiosity feeds back into how I build.
-        </p>
-
-        <div class="grid" style="margin-top:16px;">
-          <div class="tile col-6">
-            <h4><span class="chip">On the wall</span> Flow feels like</h4>
-            <ul>
-              <li>Breath steady, movement intentional, eyes on the next hold.</li>
-              <li>Trusting fundamentals: footwork, balance, and sequencing.</li>
-              <li>Micro-adjustments instead of panic.</li>
-            </ul>
-          </div>
-          <div class="tile col-6">
-            <h4><span class="chip">At the keyboard</span> Flow translates to</h4>
-            <ul>
-              <li>Small commits, tight loops, and clean interfaces.</li>
-              <li>Observability first: the system tells you what it’s doing.</li>
-              <li>Iteration without ego—just learning.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel section" id="rituals" role="region" aria-label="Rituals and boundaries">
-        <h3>Rituals That Protect Flow</h3>
-        <p>
-          Flow is fragile. I treat it like a climbing attempt: prep well, remove distractions, and stay present.
-        </p>
-
-        <div class="grid" style="margin-top:16px;">
-          <div class="tile col-4">
-            <h4><span class="chip">Focus</span> Set the arena</h4>
-            <ul>
-              <li>One task on screen, one objective in mind.</li>
-              <li>Notifications off; deep work blocks.</li>
-              <li>“Done list” to build momentum.</li>
-            </ul>
-          </div>
-          <div class="tile col-4">
-            <h4><span class="chip">Energy</span> Keep it sustainable</h4>
-            <ul>
-              <li>Short breaks, water, and a quick walk reset.</li>
-              <li>End sessions with a next step written down.</li>
-              <li>Protect sleep like it’s training.</li>
-            </ul>
-          </div>
-          <div class="tile col-4">
-            <h4><span class="chip">Learning</span> Compound it</h4>
-            <ul>
-              <li>Capture notes + “why it worked.”</li>
-              <li>Build tiny demos to learn faster.</li>
-              <li>Review and refactor knowledge weekly.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel section" id="now" role="region" aria-label="Now">
-        <h3>Now</h3>
-        <p>
-          Currently I’m excited about:
-          <span class="sep">•</span> building dependable data platforms,
-          <span class="sep">•</span> experimenting with practical AI,
-          <span class="sep">•</span> training for harder climbs,
-          <span class="sep">•</span> and saying “yes” to the next adventure.
-        </p>
-
-        <div class="grid" style="margin-top:16px;">
-          <div class="tile col-6">
-            <h4><span class="chip">Next 30 days</span> Focus bets</h4>
-            <ul>
-              <li>Improve one pipeline: speed, cost, and observability.</li>
-              <li>Ship one AI experiment with a clear evaluation plan.</li>
-              <li>Climb consistently: technique + endurance.</li>
-            </ul>
-          </div>
-
-          <div class="tile col-6">
-            <h4><span class="chip">Always</span> Values in practice</h4>
-            <ul>
-              <li><b class="muted">Curiosity</b> over certainty</li>
-              <li><b class="muted">Craft</b> over shortcuts</li>
-              <li><b class="muted">Systems</b> that people trust</li>
-              <li><b class="muted">Adventure</b> that keeps me alive</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <span>© <span id="year"></span> • Built as a single <span class="mono">index.html</span></span>
-        <span class="muted">Flow is a practice, not a switch.</span>
-      </footer>
-    </main>
-  </div>
-
-  <dialog id="playbook" aria-label="Flow Playbook">
-    <div class="modal-head">
-      <h3>Flow Playbook</h3>
-      <button class="xbtn" id="closePlaybook" type="button" aria-label="Close">Close</button>
     </div>
-    <div class="modal-body">
-      <p>
-        A lightweight checklist I use to enter flow—built from how I work and what energizes me (AI, data systems,
-        climbing mindset, and learning fast).
-      </p>
-      <ul class="list">
-        <li><b>Define the win:</b> outcome + one metric + one constraint.</li>
-        <li><b>Cut noise:</b> close tabs, mute notifications, set a timer (45–90 minutes).</li>
-        <li><b>Start small:</b> build a thin end-to-end slice that runs.</li>
-        <li><b>Instrument early:</b> tests/logs/metrics so feedback is immediate.</li>
-        <li><b>Iterate:</b> ship → measure → refine. Keep changes small and reversible.</li>
-        <li><b>Write the next move:</b> end with a clear next step so re-entry is easy.</li>
-      </ul>
-      <p style="margin-top:12px;">
-        If I’m stuck: I switch to “route reading” mode—step back, simplify the problem, and identify the next hold.
-      </p>
-    </div>
-  </dialog>
 
-  <script>
-    // Small, tasteful interactivity — no frameworks.
-    const $ = (sel) => document.querySelector(sel);
-
-    // Footer year
-    $("#year").textContent = new Date().getFullYear();
-
-    // Modal controls
-    const dlg = $("#playbook");
-    $("#openPlaybook").addEventListener("click", () => dlg.showModal());
-    $("#closePlaybook").addEventListener("click", () => dlg.close());
-    dlg.addEventListener("click", (e) => {
-      const rect = dlg.getBoundingClientRect();
-      const inDialog =
-        rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
-      if (!inDialog) dlg.close();
-    });
-
-    // Keyboard shortcut: "/" jumps to Now
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "/" && !["INPUT","TEXTAREA"].includes(document.activeElement.tagName)) {
-        e.preventDefault();
-        document.getElementById("now").scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      if (e.key === "Escape" && dlg.open) dlg.close();
-    });
-
-    // Flow meter: gentle "breathing" effect + label cycling
-    const bar = $("#flowBar");
-    const pct = $("#flowPercent");
-    const label = $("#flowLabel");
-    const modes = [
-      { name: "MODE: DEEP WORK", value: 78 },
-      { name: "MODE: PROTOTYPE", value: 72 },
-      { name: "MODE: LEARNING", value: 84 },
-      { name: "MODE: SEND IT", value: 76 }
-    ];
-    let i = 0;
-
-    function setMode(m){
-      label.textContent = m.name;
-      pct.textContent = m.value + "%";
-      bar.style.width = m.value + "%";
-    }
-
-    setMode(modes[i]);
-
-    setInterval(() => {
-      i = (i + 1) % modes.length;
-      setMode(modes[i]);
-    }, 6500);
-
-    // Subtle pulse
-    let up = true;
-    setInterval(() => {
-      const current = parseInt(bar.style.width || "78", 10);
-      const next = Math.max(55, Math.min(92, current + (up ? 1 : -1)));
-      bar.style.width = next + "%";
-      pct.textContent = next + "%";
-      if (next >= 86) up = false;
-      if (next <= 70) up = true;
-    }, 1200);
-  </script>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            alert('Thanks for your interest! We\'ll notify you at ' + email);
+            e.target.reset();
+        }
+    </script>
 </body>
 </html>
